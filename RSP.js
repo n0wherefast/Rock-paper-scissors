@@ -3,22 +3,49 @@ function computerPlay(){
 
 
 let randomNumber = Math.floor(Math.random()*3);
-console.log(randomNumber)
 switch(randomNumber){
     case 0:
-        return "Rock"
+        return "rock"
         
     case 1:
-        return "Paper"
+        return "paper"
     
     case 2:
-        return "Scissors"
+        return "scissors"
  }
 } 
 let computerSelection = computerPlay() ;
-console.log( "computer:" , computerSelection);
 
- let  playerSelection =  prompt("inserisci")
+
+  function capitalizePc(){
+  const box = computerSelection;
+  const low = box.toLowerCase();//
+  const first = low.slice(0,1);//
+  const up = first.toUpperCase(); //
+  const rep = low.replace(first,up) // 
+  return rep
+  
+  
+}
+
+computerSelection = capitalizePc()
+console.log( "computer:" , computerSelection);
+ 
+
+
+function capitalize(){
+  const box =prompt("inserisci parola");
+  const low = box.toLowerCase();//
+  const first = low.slice(0,1);//
+  const up = first.toUpperCase(); //
+  const rep = low.replace(first,up) // 
+  return rep
+  
+  
+}
+
+let  playerSelection = capitalize()
+
 
 
 
@@ -26,6 +53,7 @@ console.log( "computer:" , computerSelection);
    console.log("Player:" , playerSelection)
 
   function playRound(){
+        
 
         if(computerSelection == "Rock" && playerSelection == "Paper"){
             
@@ -35,9 +63,9 @@ console.log( "computer:" , computerSelection);
             
             return "You Win"
 
-          }else if(computerSelection == "Paper" && playerSelection == "Rock"){
+          }else if(computerSelection == "Scissors" && playerSelection == "Rock"){
 
-        return "you Win"
+        return "You Win"
 
          }else if(computerSelection == "Scissors" && playerSelection == "Paper"){
             
@@ -45,11 +73,11 @@ console.log( "computer:" , computerSelection);
 
           }else if(computerSelection == "Paper" && playerSelection == "Rock"){
 
-             return "you lose "
+             return "You Lose"
 
         }else if(computerSelection == "Rock" && playerSelection == "Scissors"){
 
-            return "you lose "
+            return "You Lose"
 
        }else {return "Tie"}
         
@@ -58,6 +86,34 @@ console.log( "computer:" , computerSelection);
 playRound()
 console.log("Round" , playRound())
 alert( playRound())
+
+  let playerScore = 0;
+  let computerScore = 0;
+
+function game(){
+
+  if (playRound() == "You Win"){
+    return  computerScore++
+  }else if (playRound() == "You Lose"){
+    return  computerScore++
+  
+}
+}
+
+game()
+console.log("player:" , playerScore)
+console.log("computer:" , computerScore)
+console.log(game())
+
+
+
+for(i=0; i<5; i++){
+  i=game()
+  console.log(i)
+}
+
+
+
 
 
 
