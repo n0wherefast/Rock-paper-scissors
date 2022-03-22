@@ -7,7 +7,7 @@ let = computerScore = 0
  
 
  const pSelct = document.createElement('p')
- const pcSelct =document.createElement('p')
+ const pcSelct = document.createElement('p')
  const round = document.createElement('p')
  const playerSco = document.createElement('p')
  const pcSco = document.createElement('p')
@@ -110,12 +110,13 @@ function capitalize(){
 
     pSelct.textContent =`Player:  ${playerSelection}`
     gameBox.appendChild(pSelct)
-    pcSelct.setAttribute('class','modPlyer')
+    playerSco.setAttribute('class','modPlayer')
+   
 
 
     playerSco.textContent =`Player Score:  ${playerScore}`
     gameBox.appendChild(playerSco)
-    playerSco.setAttribute('class','modPlayer')
+    
 
     pcSco.textContent =`Computer Score:  ${computerScore}`
     gameBox.appendChild (pcSco)
