@@ -110,7 +110,7 @@ function capitalize(){
 
     pSelct.textContent =`Player:  ${playerSelection}`
     gameBox.appendChild(pSelct)
-    playerSco.setAttribute('class','modPlayer')
+    pSelct.setAttribute('class','modPlayer')
    
     playerSco.textContent =`Player Score:  ${playerScore}`
     gameBox.appendChild(playerSco)
