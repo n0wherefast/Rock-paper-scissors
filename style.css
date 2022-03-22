@@ -1,0 +1,89 @@
+
+
+body{
+    background-color: rgb(3, 66, 139);
+    
+}
+
+.OPB{
+    background-color: rgb(52, 54, 53);
+    height: 200px;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    padding: 10px;
+    /*margin-top: 300px;*/
+}
+
+
+button{
+    border:none;
+    border-radius: 7px;
+    color: orange;
+    background-color:rgb(70, 73, 72);
+    height: 100px;
+    width: 200px;
+    font-size: 40px;
+    font-family: 'Courier New', Courier, monospace;
+}
+.rst{
+    background-color: rgb(52, 54, 53);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    
+}
+.gameBox{
+    background-color: rgb(52, 54, 53);
+    padding-top:20px;
+    height: 200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+   
+
+    
+    
+}
+p{
+    color: orange;
+    border-radius: 10px;
+    font-size: 20px;
+    background-color:rgb(70, 73, 72);
+    width: 150px;
+    height:100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Courier New', Courier, monospace;
+    
+    
+}
+    
+    h1{
+        position: absolute;
+        top:0px;
+        color: orange;
+        
+    }
+    
+    h2{
+        
+        color: orange;
+        
+    }
+.modificaRound{
+    color: red;
+    font-size: 40px;
+
+}
+.modPlayer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: aqua;
+}
+.roundWin{
+        color:green;
+    }

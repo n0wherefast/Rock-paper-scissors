@@ -1,23 +1,37 @@
+let = playerScore = 0
+let = computerScore = 0
+
+ const btns = document.querySelectorAll('div.OPB button');
+ const gameBox = document.querySelector('.gameBox')
+ const makeCh =document.querySelector('h2')
+ 
+
+ const pSelct = document.createElement('p')
+ const pcSelct =document.createElement('p')
+ const round = document.createElement('p')
+ const playerSco = document.createElement('p')
+ const pcSco = document.createElement('p')
+ 
+
+
 
 function computerPlay(){
-
 
 let randomNumber = Math.floor(Math.random()*3);
 switch(randomNumber){
     case 0:
-        return "rock"
+        return "Rock"
         
     case 1:
-        return "paper"
+        return "Paper"
     
     case 2:
-        return "scissors"
+        return "Scissors"
  }
 } 
-let computerSelection = computerPlay() ;
 
 
-  function capitalizePc(){
+ /* function capitalizePc(){
   const box = computerSelection;
   const low = box.toLowerCase();//
   const first = low.slice(0,1);//
@@ -29,7 +43,7 @@ let computerSelection = computerPlay() ;
 }
 
 computerSelection = capitalizePc()
-console.log( "computer:" , computerSelection);
+
  
 
 
@@ -42,79 +56,106 @@ function capitalize(){
   return rep
   
   
-}
+}*/
 
-let  playerSelection = capitalize()
+  function playRound(playerSelection , computerSelection){
 
+        if(computerSelection == "Rock" && playerSelection == "Paper"){
+          playerScore++; 
+          
+          return "Win" 
 
+        }else if(computerSelection === "Paper" && playerSelection == "Scissors"){           
+          playerScore++; 
+          
+          return "Win"
+ 
+          }else if(computerSelection == "Scissors" && playerSelection == "Rock"){
+          playerScore++;
+          
+            return "Win"
+
+         }else if(computerSelection == "Scissors" && playerSelection == "Paper"){
+            computerScore++
+            return "Lose" 
+
+          }else if(computerSelection == "Paper" && playerSelection == "Rock"){
+            computerScore++
+            return "Lose"
+
+        }else if(computerSelection == "Rock" && playerSelection == "Scissors"){
+          computerScore++
+          return "Lose"
+
+       }else {return "Tie" } 
+       }
 
 
    
-   console.log("Player:" , playerSelection)
 
-  function playRound(){
-        
 
-        if(computerSelection == "Rock" && playerSelection == "Paper"){
-            
-          return "You Win"
 
-        }else if(computerSelection === "Paper" && playerSelection == "Scissors"){
-            
-            return "You Win"
-
-          }else if(computerSelection == "Scissors" && playerSelection == "Rock"){
-
-        return "You Win"
-
-         }else if(computerSelection == "Scissors" && playerSelection == "Paper"){
-            
-            return "You Lose"
-
-          }else if(computerSelection == "Paper" && playerSelection == "Rock"){
-
-             return "You Lose"
-
-        }else if(computerSelection == "Rock" && playerSelection == "Scissors"){
-
-            return "You Lose"
-
-       }else {return "Tie"}
-        
+  btns.forEach((button)=> {
+  button.addEventListener('click' ,()=>{
     
-    }
-playRound()
-console.log("Round" , playRound())
-alert( playRound())
+    let playerSelection = button.id;
+    let computerSelection = computerPlay();
+    
+    
+    
+    
+    round.textContent =`${ playRound(playerSelection, computerSelection)}`
+    gameBox.appendChild(round)
+    round.setAttribute('class','modificaRound')
 
-  let playerScore = 0;
-  let computerScore = 0;
+    pSelct.textContent =`Player:  ${playerSelection}`
+    gameBox.appendChild(pSelct)
+    pcSelct.setAttribute('class','modPlyer')
 
-function game(){
 
-  if (playRound() == "You Win"){
-    return  computerScore++
-  }else if (playRound() == "You Lose"){
-    return  computerScore++
-  
+    playerSco.textContent =`Player Score:  ${playerScore}`
+    gameBox.appendChild(playerSco)
+    playerSco.setAttribute('class','modPlayer')
+
+    pcSco.textContent =`Computer Score:  ${computerScore}`
+    gameBox.appendChild (pcSco)
+    pcSco.setAttribute('class','modPC')
+
+    pcSelct.textContent =`Computer:  ${computerSelection}`
+    gameBox.appendChild(pcSelct)
+    pcSelct.setAttribute('class','modPC')
+   
+    
+    checkWinner()
+    gameBox.appendChild(makeCh)
+    gameBox.removeChild(makeCh)
+   }) 
+}) 
+
+function restart(){
+const rest = document.querySelector('#rest');
+rest.addEventListener('click',()=>{location.reload()})
 }
+restart()
+
+
+function checkWinner(){
+  if(playerScore===5){
+    alert('WIN')
+    restartGame()
+   }else if(computerScore===5){
+     alert('LOSE')
+     restartGame()
+}    
 }
 
-game()
-console.log("player:" , playerScore)
-console.log("computer:" , computerScore)
-console.log(game())
 
+function restartGame(){
+ 
+ btns.forEach(btn=>{
+   btn.disabled = true
+   
+ })
 
-
-for(i=0; i<5; i++){
-  i=game()
-  console.log(i)
 }
-
-
-
-
-
-
 
